@@ -319,3 +319,61 @@ body {
 #send-btn:hover {
     background-color: #008f72;
 }
+/* ==========================================
+   RESPONSIVE - Para celulares
+   ========================================== */
+@media (max-width: 768px) {
+    .chat-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        border-right: none;
+        border-bottom: 1px solid #3b4a54;
+    }
+
+    .users-section {
+        padding: 10px;
+    }
+
+    #users-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    #users-list li {
+        padding: 5px 10px;
+        font-size: 12px;
+        margin-bottom: 0;
+    }
+
+    .chat-main {
+        flex: 1;
+    }
+
+    .message {
+        max-width: 85%;
+    }
+
+    .input-area {
+        padding: 10px;
+    }
+
+    #message-input {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    #send-btn {
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+
+    .file-image, .file-video {
+        max-height: 200px;
+    }
+}
