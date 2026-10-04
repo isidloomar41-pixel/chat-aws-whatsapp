@@ -1,0 +1,321 @@
+/* ==========================================
+   ESTILOS GENERALES
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #111b21;
+    color: white;
+    height: 100vh;
+}
+
+/* ==========================================
+   LOGIN
+   ========================================== */
+.login-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    background-color: #202c33;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    width: 350px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.login-box h2 {
+    color: #00a884;
+    margin-bottom: 10px;
+}
+
+.login-box p {
+    color: #8696a0;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #3b4a54;
+    border-radius: 5px;
+    background-color: #2a3942;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+.login-box input:focus {
+    border-color: #00a884;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    background-color: #00a884;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-box button:hover {
+    background-color: #008f72;
+}
+
+/* ==========================================
+   CHAT - CONTENEDOR PRINCIPAL
+   ========================================== */
+.chat-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* ==========================================
+   SIDEBAR (Panel izquierdo)
+   ========================================== */
+.sidebar {
+    width: 300px;
+    background-color: #202c33;
+    border-right: 1px solid #3b4a54;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    background-color: #2a3942;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #3b4a54;
+}
+
+.sidebar-header h3 {
+    color: #00a884;
+    font-size: 16px;
+}
+
+#logout-btn {
+    background-color: #ef476f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+#logout-btn:hover {
+    background-color: #d63d5e;
+}
+
+.users-section {
+    padding: 15px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.users-section h4 {
+    color: #8696a0;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+#users-list {
+    list-style: none;
+}
+
+#users-list li {
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #2a3942;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#users-list li:hover {
+    background-color: #3b4a54;
+}
+
+#users-list li.me {
+    background-color: #00a884;
+    color: white;
+}
+
+/* ==========================================
+   CHAT PRINCIPAL (Panel derecho)
+   ========================================== */
+.chat-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #0b141a;
+}
+
+.chat-header {
+    background-color: #202c33;
+    padding: 15px;
+    border-bottom: 1px solid #3b4a54;
+}
+
+.chat-header h3 {
+    color: white;
+    font-size: 16px;
+}
+
+/* ==========================================
+   ÁREA DE MENSAJES
+   ========================================== */
+.messages-area {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect fill="%230b141a" width="100" height="100"/></svg>');
+}
+
+.message {
+    max-width: 60%;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: #202c33;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.message.my-message {
+    background-color: #005c4b;
+    margin-left: auto;
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.message-username {
+    color: #00a884;
+    font-weight: bold;
+}
+
+.message-time {
+    color: #8696a0;
+    font-size: 11px;
+}
+
+.message-content {
+    color: white;
+    font-size: 14px;
+    word-wrap: break-word;
+}
+
+/* ==========================================
+   ARCHIVOS EN MENSAJES
+   ========================================== */
+.file-content {
+    margin-top: 5px;
+}
+
+.file-image {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.file-video {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.file-audio {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.file-link {
+    color: #00a884;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #2a3942;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.file-link:hover {
+    background-color: #3b4a54;
+}
+
+/* ==========================================
+   ÁREA DE INPUT (abajo)
+   ========================================== */
+.input-area {
+    background-color: #202c33;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-top: 1px solid #3b4a54;
+}
+
+.file-label {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.2s;
+}
+
+.file-label:hover {
+    transform: scale(1.2);
+}
+
+#message-input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #3b4a54;
+    border-radius: 20px;
+    background-color: #2a3942;
+    color: white;
+    font-size: 14px;
+    outline: none;
+}
+
+#message-input:focus {
+    border-color: #00a884;
+}
+
+#send-btn {
+    padding: 12px 20px;
+    background-color: #00a884;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+#send-btn:hover {
+    background-color: #008f72;
+}

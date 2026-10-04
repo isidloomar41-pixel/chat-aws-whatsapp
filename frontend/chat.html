@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat WhatsApp</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Panel izquierdo: Lista de usuarios -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3 id="my-username">Mi usuario</h3>
+                <button id="logout-btn" title="Cerrar sesión">🚪 Salir</button>
+            </div>
+            <div class="users-section">
+                <h4>Usuarios conectados</h4>
+                <ul id="users-list"></ul>
+            </div>
+        </div>
+
+        <!-- Panel derecho: Chat -->
+        <div class="chat-main">
+            <div class="chat-header">
+                <h3>💬 Chat grupal</h3>
+            </div>
+
+            <!-- Área de mensajes -->
+            <div class="messages-area" id="messages-area">
+                <!-- Los mensajes aparecerán aquí -->
+            </div>
+
+            <!-- Área para enviar mensajes -->
+            <div class="input-area">
+                <label for="file-input" class="file-label" title="Enviar archivo">📎</label>
+                <input type="file" id="file-input" hidden>
+                <input type="text" id="message-input" placeholder="Escribe un mensaje..." autocomplete="off">
+                <button id="send-btn">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sonido de notificación -->
+    <audio id="notification-sound" src="sounds/notification.mp3" preload="auto"></audio>
+
+    <!-- Librería de Socket.io -->
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <!-- Nuestro script del chat -->
+    <script src="js/chat.js"></script>
+</body>
+</html>

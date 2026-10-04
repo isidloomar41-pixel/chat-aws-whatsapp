@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat WhatsApp - Iniciar Sesión</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Bienvenido al Chat</h2>
+            <p>Ingresa tu nombre para continuar</p>
+            <input type="text" id="username" placeholder="Tu nombre de usuario" autocomplete="off">
+            <button id="join-btn">Entrar al Chat</button>
+        </div>
+    </div>
+
+    <!-- Librería de Socket.io -->
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <!-- Nuestro script de login -->
+    <script src="js/login.js"></script>
+</body>
+</html>
