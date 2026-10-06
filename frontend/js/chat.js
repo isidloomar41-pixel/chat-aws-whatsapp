@@ -17,7 +17,10 @@ const messageInput = document.getElementById('message-input');
 const sendBtn = document.getElementById('send-btn');
 const fileInput = document.getElementById('file-input');
 const logoutBtn = document.getElementById('logout-btn');
-const notificationSound = document.getElementById('notification-sound');
+
+// Elementos de audio para los sonidos
+const soundSend = document.getElementById('sound-send');
+const soundReceive = document.getElementById('sound-receive');
 
 // Mostrar mi nombre en el sidebar
 myUsernameDisplay.textContent = `👤 ${myUsername}`;
@@ -26,10 +29,10 @@ myUsernameDisplay.textContent = `👤 ${myUsername}`;
 // FUNCIONES
 // ==========================================
 
-// Función para reproducir sonido
-function playNotification() {
-    notificationSound.currentTime = 0;
-    notificationSound.play().catch(e => console.log('Error al reproducir sonido:', e));
+// Función auxiliar para reproducir sonidos sin errores
+function playSound(audioElement) {
+    audioElement.currentTime = 0; // Reinicia el sonido por si se manda muy rápido
+    audioElement.play().catch(e => console.log("El navegador bloqueó el audio:", e));
 }
 
 // Función para agregar un mensaje al chat
@@ -79,7 +82,7 @@ function addFileMessage(data) {
     }
     // Otros archivos: mostrar link de descarga
     else {
-        fileContent = `<a href="/uploads/${data.filename}" download="${data.originalname}" class="file-link"> ${data.originalname}</a>`;
+        fileContent = `<a href="/uploads/${data.filename}" download="${data.originalname}" class="file-link">📎 ${data.originalname}</a>`;
     }
     
     fileDiv.innerHTML = `
@@ -115,6 +118,7 @@ function sendMessage() {
     const message = messageInput.value.trim();
     if (message !== '') {
         socket.emit('chatMessage', { message: message });
+        playSound(soundSend); // 👈 Sonido al enviar
         messageInput.value = '';
     }
 }
@@ -191,17 +195,17 @@ socket.on('userList', (users) => {
 // Recibir mensaje de texto
 socket.on('chatMessage', (data) => {
     addMessage(data);
-    // Reproducir sonido si el mensaje no es mío
+    // Reproducir sonido SOLO si el mensaje es de OTRA persona
     if (data.username !== myUsername) {
-        playNotification();
+        playSound(soundReceive); // 👈 Sonido al recibir
     }
 });
 
 // Recibir archivo
 socket.on('receiveFile', (data) => {
     addFileMessage(data);
-    // Reproducir sonido si el archivo no es mío
+    // Reproducir sonido SOLO si el archivo es de OTRA persona
     if (data.username !== myUsername) {
-        playNotification();
+        playSound(soundReceive); // 👈 Sonido al recibir
     }
 });
